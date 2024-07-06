@@ -58,6 +58,6 @@ class Custodio extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('Custodio');
+        $this->forge->dropTable('custodio');
     }
 }

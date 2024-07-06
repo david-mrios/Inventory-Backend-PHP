@@ -46,7 +46,7 @@ class Movimiento extends Migration
         ]);
 
         $this->forge->addKey('noMovimiento', true);
-        $this->forge->addForeignKey('inss', 'Responsable', 'inss', '', 'CASCADE');
+        $this->forge->addForeignKey('inss', 'responsable', 'inss', '', 'CASCADE');
         $this->forge->addForeignKey('idTpMovimiento', 'Tipo_Movimiento', 'idTipoMovimiento', '', 'CASCADE');
         $this->forge->addForeignKey('idLab', 'Laboratorio', 'idLab', '', 'CASCADE');
         $this->forge->createTable('Movimiento');

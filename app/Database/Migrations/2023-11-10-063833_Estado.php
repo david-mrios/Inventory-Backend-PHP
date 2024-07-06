@@ -30,7 +30,7 @@ class Estado extends Migration
         ];
 
         // Datos definidos
-        $this->db->table('Estado')->insertBatch($data);
+        $this->db->table('estado')->insertBatch($data);
 
     }
 

@@ -36,7 +36,7 @@ class EncargadoLab extends Migration
         ]);
 
         $this->forge->addKey('idEncargado', true);
-        $this->forge->addForeignKey('noCarnet', 'Instructor', 'noCarnet', '', 'CASCADE');
+        $this->forge->addForeignKey('noCarnet', 'instructor', 'noCarnet', '', 'CASCADE');
         $this->forge->addForeignKey('idLab', 'Laboratorio', 'idLab', '', 'CASCADE');
         $this->forge->createTable('EncargadoLab');
     }
