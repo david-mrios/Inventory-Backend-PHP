@@ -1,67 +1,85 @@
-# CodeIgniter 4 Application Starter
+<h1 align="center"> CodeIgniter 4 Application Starter: Inventory<h1> 
 
-## What is CodeIgniter?
+<h1 align="center"> Sistema de Inventario de Equipos Tecnológicos en Laboratorios de Computación <h1>
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Descripción General
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+El **Sistema de Inventario de Equipos Tecnológicos en Laboratorios de Computación** es una aplicación basada en CodeIgniter 4 diseñada para gestionar y monitorear el equipo tecnológico en laboratorios de computación. Este sistema ayuda a mantener un registro actualizado de todos los equipos, asegurando un seguimiento y gestión eficientes de los artículos tanto funcionales como no funcionales.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Características
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+- **Gestión de Inventario**: Permite añadir, editar, eliminar y visualizar equipos tecnológicos.
+- **Seguimiento de Equipos**: Mantiene un registro de equipos funcionales y no funcionales.
+- **Migraciones de Base de Datos**: Implementa migraciones para gestionar cambios en la estructura de la base de datos.
+- **Conexión a MySQL**: Usa MySQL como sistema de gestión de bases de datos.
 
-## Installation & updates
+## Requisitos
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+- PHP 7.3 o **superior**
+- MySQL 8.3 **Preferiblemente**
+- Composer: **latest**
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+## Instalación
 
-## Setup
+1. **Clonar el Repositorio**
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+   ```bash
+   https://github.com/david-mrios/Inventory-Backend-PHP.git
+   ```
 
-## Important Change with index.php
+    ```bash
+   cd Inventory-Backend-PHP
+   ```
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+2. **Instalar Dependencias**
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+   Asegúrate de tener Composer instalado y ejecuta:
 
-**Please** read the user guide for a better explanation of how CI4 works!
+   ```bash
+   composer install
+   ```
 
-## Repository Management
+3. **Configurar el Entorno**
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Ubica el archivo `app/Config/Database.php` y ajusta la configuración de la base de datos:
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+   ```plaintext
+    public array $default = [
+        'DSN'          => '',
+        'hostname'     => 'localhost',
+        'username'     => 'root',
+        'password'     => 'root',
+        'database'     => 'inventory',
+        'DBDriver'     => 'MySQLi',
+        'DBPrefix'     => '',
+        'pConnect'     => true,
+        'DBDebug'      => true,
+        'charset'      => 'utf8',
+        'DBCollat'     => 'utf8_general_ci',
+        'swapPre'      => '',
+        'encrypt'      => false,
+        'compress'     => false,
+        'strictOn'     => false,
+        'failover'     => [],
+        'port'         => 3306,
+        'numberNative' => false,
+    ];
+   ```
 
-## Server Requirements
+4. **Ejecutar Migraciones**
 
-PHP version 7.4 or higher is required, with the following extensions installed:
+   Ejecuta las migraciones para crear las tablas necesarias en la base de datos:
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+   ```bash
+   php spark migrate
+   ```
 
-> **Warning**
-> The end of life date for PHP 7.4 was November 28, 2022. If you are
-> still using PHP 7.4, you should upgrade immediately. The end of life date
-> for PHP 8.0 will be November 26, 2023.
+5. **Iniciar el Servidor**
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+   Puedes iniciar el servidor de desarrollo de CodeIgniter con el siguiente comando:
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+   ```bash
+   php spark serve
+   ```
+
+   La aplicación estará disponible en `http://localhost:8080` o `http://localhost:8081`. 
